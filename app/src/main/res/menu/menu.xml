@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="inicio"
+        android:icon="@drawable/inicio"
+        android:id="@+id/inicio"/>
+    <item android:title="tablas"
+        android:id="@+id/tablas1"
+        android:icon="@drawable/tablas"/>
+    <item android:title="recycle"
+        android:id="@+id/rick"
+        android:icon="@drawable/recycle"/>
+    <item android:title="retrofit"
+        android:icon="@drawable/ic_baseline_thumb_up_24"/>
+    <item android:title="juego"
+        android:icon="@drawable/adivinar"/>
+
+</menu>

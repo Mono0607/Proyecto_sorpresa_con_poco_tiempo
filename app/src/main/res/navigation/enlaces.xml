@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/enlaces"
+    app:startDestination="@id/inicio">
+
+    <fragment
+        android:id="@+id/inicio"
+        android:name="com.example.proyecto_sorpresa_con_poco_tiempo.inicio"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" />
+    <fragment
+        android:id="@+id/tablas1"
+        android:name="com.example.proyecto_sorpresa_con_poco_tiempo.tablas1"
+        android:label="fragment_tablas1"
+        tools:layout="@layout/fragment_tablas1" >
+        <action
+            android:id="@+id/action_tablas1_to_tablas2"
+            app:destination="@id/tablas2" />
+    </fragment>
+    <fragment
+        android:id="@+id/tablas2"
+        android:name="com.example.proyecto_sorpresa_con_poco_tiempo.tablas2"
+        android:label="fragment_tablas2"
+        tools:layout="@layout/fragment_tablas2" >
+        <action
+            android:id="@+id/action_tablas2_to_tablas3"
+            app:destination="@id/tablas3" />
+    </fragment>
+    <fragment
+        android:id="@+id/tablas3"
+        android:name="com.example.proyecto_sorpresa_con_poco_tiempo.tablas3"
+        android:label="fragment_tablas3"
+        tools:layout="@layout/fragment_tablas3" />
+    <fragment
+        android:id="@+id/rick"
+        android:name="com.example.proyecto_sorpresa_con_poco_tiempo.rick"
+        android:label="fragment_rick"
+        tools:layout="@layout/fragment_rick" />
+</navigation>
