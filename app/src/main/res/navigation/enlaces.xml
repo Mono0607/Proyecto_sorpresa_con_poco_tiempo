@@ -32,7 +32,11 @@
         android:id="@+id/tablas3"
         android:name="com.example.proyecto_sorpresa_con_poco_tiempo.tablas3"
         android:label="fragment_tablas3"
-        tools:layout="@layout/fragment_tablas3" />
+        tools:layout="@layout/fragment_tablas3" >
+        <action
+            android:id="@+id/action_tablas3_to_tablas2"
+            app:destination="@id/tablas2" />
+    </fragment>
     <fragment
         android:id="@+id/rick"
         android:name="com.example.proyecto_sorpresa_con_poco_tiempo.rick"
