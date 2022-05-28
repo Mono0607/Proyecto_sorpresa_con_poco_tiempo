@@ -5,55 +5,37 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.proyecto_sorpresa_con_poco_tiempo.adaptador.PersonajeAdapter
+import com.example.proyecto_sorpresa_con_poco_tiempo.modelo.Personaje
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [rick.newInstance] factory method to
- * create an instance of this fragment.
- */
 class rick : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    lateinit var miRecycler: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rick, container, false)
-    }
+        val ventana= inflater.inflate(R.layout.fragment_rick, container, false)
+        val listaPersonajes = ArrayList<Personaje>()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment rick.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            rick().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        listaPersonajes.add(Personaje("LALA ( ララ･サタリン・デビルーク)","https://images6.alphacoders.com/104/1040238.png"))
+        listaPersonajes.add(Personaje("TAIGA AISAKA ( 逢坂 大河 )","https://images3.alphacoders.com/841/841345.png"))
+        listaPersonajes.add(Personaje("MINORI KUSHIEDA (櫛枝 実乃梨 )","https://images4.alphacoders.com/733/733183.png"))
+        listaPersonajes.add(Personaje("AMI KAWASHIMA ( 川嶋 亜美 )","https://images.alphacoders.com/104/1041700.jpg"))
+        listaPersonajes.add(Personaje("MASHIRO SHIINA ( 椎名 ましろ)","https://images2.alphacoders.com/866/866103.png"))
+        listaPersonajes.add(Personaje("DESUMI MEGAHAARA ( 禍原 デス美 )","https://images8.alphacoders.com/122/1229096.png"))
+        listaPersonajes.add(Personaje("LALA ( ララ･サタリン・デビルーク)","https://images6.alphacoders.com/104/1040238.png"))
+
+
+
+        miRecycler= ventana.findViewById(R.id.RecyclerPersonajes)
+
+        miRecycler.adapter= PersonajeAdapter(listaPersonajes)
+        miRecycler.layoutManager= LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+        //GridLayoutManager
+        //StaggeredGridLayoutManager
+        return ventana
     }
 }
