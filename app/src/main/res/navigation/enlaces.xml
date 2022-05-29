@@ -42,4 +42,18 @@
         android:name="com.example.proyecto_sorpresa_con_poco_tiempo.rick"
         android:label="fragment_rick"
         tools:layout="@layout/fragment_rick" />
+    <fragment
+        android:id="@+id/juego1"
+        android:name="com.example.proyecto_sorpresa_con_poco_tiempo.juego1"
+        android:label="fragment_juego1"
+        tools:layout="@layout/fragment_juego1" >
+        <action
+            android:id="@+id/action_juego1_to_juego2"
+            app:destination="@id/juego2" />
+    </fragment>
+    <fragment
+        android:id="@+id/juego2"
+        android:name="com.example.proyecto_sorpresa_con_poco_tiempo.juego2"
+        android:label="fragment_juego2"
+        tools:layout="@layout/fragment_juego2" />
 </navigation>

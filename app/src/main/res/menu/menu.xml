@@ -14,6 +14,7 @@
     <item android:title="retrofit"
         android:icon="@drawable/ic_baseline_thumb_up_24"/>
     <item android:title="juego"
+        android:id="@+id/juego1"
         android:icon="@drawable/adivinar"/>
 
 </menu>
