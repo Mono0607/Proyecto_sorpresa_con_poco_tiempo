@@ -56,4 +56,9 @@
         android:name="com.example.proyecto_sorpresa_con_poco_tiempo.juego2"
         android:label="fragment_juego2"
         tools:layout="@layout/fragment_juego2" />
+    <fragment
+        android:id="@+id/retro"
+        android:name="com.example.proyecto_sorpresa_con_poco_tiempo.retro"
+        android:label="fragment_retro"
+        tools:layout="@layout/fragment_retro" />
 </navigation>
