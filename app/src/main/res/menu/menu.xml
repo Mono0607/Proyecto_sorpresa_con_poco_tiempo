@@ -12,7 +12,8 @@
         android:id="@+id/rick"
         android:icon="@drawable/recycle"/>
     <item android:title="retrofit"
-        android:icon="@drawable/ic_baseline_thumb_up_24"/>
+        android:icon="@drawable/ic_baseline_thumb_up_24"
+        android:id="@+id/retro"/>
     <item android:title="juego"
         android:id="@+id/juego1"
         android:icon="@drawable/adivinar"/>

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Adapter
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 
 class retro : Fragment(),SearchView.OnQueryTextListener {
@@ -32,8 +33,10 @@ class retro : Fragment(),SearchView.OnQueryTextListener {
     ): View? {
         val ventana = inflater.inflate(R.layout.fragment_retro, container, false)
         ser=ventana.findViewById(R.id.svDogs)
+        myrecycle=ventana.findViewById(R.id.rvDogs)
         ser.setOnQueryTextListener(this)
         initRecyclerView()
+        return ventana
 
     }
 
@@ -57,7 +60,7 @@ class retro : Fragment(),SearchView.OnQueryTextListener {
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(APIService::class.java).getDogsByBreeds("$query/images")
             val puppies = call.body()
-            runOnUiThread {
+            requireActivity().runOnUiThread {
                 if(call.isSuccessful){
                     val images = puppies?.images ?: emptyList()
                     DogImages.clear()
@@ -66,7 +69,6 @@ class retro : Fragment(),SearchView.OnQueryTextListener {
                 }else{
                     showError()
                 }
-                hideKeyboard()
             }
 
 
@@ -74,22 +76,18 @@ class retro : Fragment(),SearchView.OnQueryTextListener {
 
     }
 
-    private fun hideKeyboard() {
-        val imm = getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(binding.viewRoot.windowToken, 0)
-    }
-
     private fun showError() {
-        Toast.makeText(this,"Estamos teniendo  un error", Toast.LENGTH_SHORT).show()
-    }
-        return ventana
+        Toast.makeText(requireContext(),"Estamos teniendo  un error", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onQueryTextSubmit(p0: String?): Boolean {
-        TODO("Not yet implemented")
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            searchByName(query.lowercase(Locale.getDefault()))
+        }
+        return true
     }
 
-    override fun onQueryTextChange(p0: String?): Boolean {
-        TODO("Not yet implemented")
+    override fun onQueryTextChange(newText: String?): Boolean{
+        return true
     }
 }
